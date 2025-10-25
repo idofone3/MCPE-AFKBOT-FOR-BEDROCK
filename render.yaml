@@ -11,7 +11,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: BOT_USERNAME
-        value: BedrockBot
+        value: IAMHEROBRINE
       - key: PORT
         value: 3000
       - key: NODE_VERSION
