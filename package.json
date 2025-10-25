@@ -2,7 +2,7 @@
   "name": "minecraft-bedrock-bot",
   "version": "1.0.0",
   "type": "module",
-  "description": "Bedrock bot for Aternos server",
+  "description": "Bedrock bot with web dashboard",
   "main": "index.js",
   "scripts": {
     "start": "node --max-old-space-size=450 index.js",
@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "bedrock-protocol": "^5.0.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1",
+    "ejs": "^3.1.10"
   }
 }
