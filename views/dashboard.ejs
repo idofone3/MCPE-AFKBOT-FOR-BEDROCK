@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Bedrock Bot Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Minecraft Bedrock Bot Dashboard</h1>
+            <p class="subtitle">Real-time bot monitoring and control</p>
+        </header>
+
+        <div class="grid">
+            <!-- Status Card -->
+            <div class="card">
+                <h2>🔌 Connection Status</h2>
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Loading...</span>
+                </div>
+                <div class="info-grid">
+                    <div>
+                        <strong>Server:</strong>
+                        <span><%= botConfig.host %>:<%= botConfig.port %></span>
+                    </div>
+                    <div>
+                        <strong>Username:</strong>
+                        <span><%= botConfig.username %></span>
+                    </div>
+                    <div>
+                        <strong>Version:</strong>
+                        <span><%= botConfig.version %></span>
+                    </div>
+                    <div>
+                        <strong>Reconnect Attempts:</strong>
+                        <span id="reconnectAttempts">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Card -->
+            <div class="card">
+                <h2>📊 Bot Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-label">Uptime</div>
+                        <div class="stat-value" id="uptime">0s</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Memory</div>
+                        <div class="stat-value" id="memory">0 MB</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Following</div>
+                        <div class="stat-value" id="following">No</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="card">
+                <h2>🎛️ Bot Controls</h2>
+                <div class="button-grid">
+                    <button class="btn btn-primary" onclick="sendCommand('teamup')">
+                        Teamup Gesture
+                    </button>
+                    <button class="btn btn-warning" onclick="sendCommand('stop')">
+                        Stop Following
+                    </button>
+                    <button class="btn btn-success" onclick="sendCommand('reconnect')">
+                        Reconnect
+                    </button>
+                    <button class="btn btn-danger" onclick="sendCommand('disconnect')">
+                        Disconnect
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Box -->
+            <div class="card chat-card">
+                <h2>💬 Chat Log</h2>
+                <div class="chat-box" id="chatBox">
+                    <p class="chat-empty">No messages yet...</p>
+                </div>
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Type message and press Enter..."
+                        onkeypress="handleChatKey(event)"
+                    >
+                    <button class="btn btn-primary" onclick="sendChatMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/dashboard.js"></script>
+</body>
+</html>
