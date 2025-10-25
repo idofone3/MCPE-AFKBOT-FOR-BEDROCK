@@ -27,7 +27,7 @@ const BOT_CONFIG = {
   port: 55381,
   username: process.env.BOT_USERNAME || 'BedrockBot_' + Math.floor(Math.random() * 1000),
   offline: true,
-  version: '1.21.114'
+  version: '1.21.111'
 };
 
 const PORT = process.env.PORT || 3000;
