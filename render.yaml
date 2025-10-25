@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: minecraft-bedrock-bot
+    runtime: node
+    region: singapore
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_USERNAME
+        value: BedrockBot
+      - key: PORT
+        value: 3000
+      - key: NODE_VERSION
+        value: 18.20.0
+    autoDeploy: true
+    
